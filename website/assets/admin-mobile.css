@@ -1,0 +1,27 @@
+/* 后台移动端适配：仅在手机端（html.ua-mobile）生效，桌面端保持完整表格 */
+
+
+  html.ua-mobile body[data-page^="admin-"] .page-head { padding-top:16px; }
+  html.ua-mobile body[data-page^="admin-"] .table-wrap { margin:0 -4px;padding:0 4px;overflow-x:auto;-webkit-overflow-scrolling:touch; }
+  html.ua-mobile body[data-page^="admin-"] table.tb { font-size:12px; }
+  html.ua-mobile body[data-page^="admin-"] table.tb th, html.ua-mobile  body[data-page^="admin-"] table.tb td { padding:8px 9px;white-space:nowrap; }
+  html.ua-mobile body[data-page^="admin-"] table.tb th:last-child, html.ua-mobile  body[data-page^="admin-"] table.tb td:last-child { position:sticky;right:0;background:var(--surface);box-shadow:-8px 0 10px -8px rgba(58,40,20,.22); }
+  html.ua-mobile body[data-page^="admin-"] table.tb thead th:last-child { background:var(--panel); }
+  html.ua-mobile body[data-page^="admin-"] .tb-title b, html.ua-mobile  body[data-page^="admin-"] .tb-title span:not(.badge) { display:block;max-width:132px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap; }
+  html.ua-mobile body[data-page^="admin-"] .rgrid[style] { grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px; }
+  html.ua-mobile body[data-page^="admin-"] .form-grid[style] { grid-template-columns:1fr!important;gap:10px!important; }
+  html.ua-mobile body[data-page^="admin-"] .admin-stat-grid { grid-template-columns:1fr 1fr!important;gap:10px; }
+  html.ua-mobile body[data-page^="admin-"] .stat .v { font-size:22px; }
+  html.ua-mobile body[data-page="admin-users"] table.tb { min-width:0; }
+  html.ua-mobile body[data-page="admin-users"] table.tb th:nth-child(2), html.ua-mobile body[data-page="admin-users"] table.tb td:nth-child(2), html.ua-mobile body[data-page="admin-users"] table.tb th:nth-child(3), html.ua-mobile body[data-page="admin-users"] table.tb td:nth-child(3), html.ua-mobile body[data-page="admin-users"] table.tb th:nth-child(4), html.ua-mobile body[data-page="admin-users"] table.tb td:nth-child(4), html.ua-mobile body[data-page="admin-users"] table.tb th:nth-child(6), html.ua-mobile body[data-page="admin-users"] table.tb td:nth-child(6), html.ua-mobile body[data-page="admin-users"] table.tb th:nth-child(7), html.ua-mobile body[data-page="admin-users"] table.tb td:nth-child(7) { display:none; }
+  html.ua-mobile body[data-page="admin-recipes"] table.tb { min-width:340px; }
+  html.ua-mobile body[data-page="admin-recipes"] table.tb th:nth-child(5), html.ua-mobile body[data-page="admin-recipes"] table.tb td:nth-child(5), html.ua-mobile body[data-page="admin-recipes"] table.tb th:nth-child(6), html.ua-mobile body[data-page="admin-recipes"] table.tb td:nth-child(6), html.ua-mobile body[data-page="admin-recipes"] table.tb th:nth-child(7), html.ua-mobile body[data-page="admin-recipes"] table.tb td:nth-child(7) { display:none; }
+  html.ua-mobile body[data-page="admin-categories"] table.tb { min-width:0; }
+  html.ua-mobile body[data-page="admin-categories"] table.tb th:nth-child(1), html.ua-mobile body[data-page="admin-categories"] table.tb td:nth-child(1), html.ua-mobile body[data-page="admin-categories"] table.tb th:nth-child(3), html.ua-mobile body[data-page="admin-categories"] table.tb td:nth-child(3), html.ua-mobile body[data-page="admin-categories"] table.tb th:nth-child(6), html.ua-mobile body[data-page="admin-categories"] table.tb td:nth-child(6) { display:none; }
+  html.ua-mobile body[data-page="admin-comments"] table.tb { min-width:300px; }
+  html.ua-mobile body[data-page="admin-comments"] table.tb th:nth-child(4), html.ua-mobile body[data-page="admin-comments"] table.tb td:nth-child(4) { display:none; }
+
+/* 手机端表格标题列再收窄，避免被右侧吸附的操作列压住 */
+html.ua-mobile body[data-page^="admin-"] .tb-title b,
+html.ua-mobile body[data-page^="admin-"] .tb-title span:not(.badge) { max-width:100px; }
+html.ua-mobile body[data-page="admin-recipes"] table.tb { width:100%; }

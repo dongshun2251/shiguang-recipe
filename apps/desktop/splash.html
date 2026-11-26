@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<style>
+  html,body{height:100%;margin:0}
+  body{display:flex;align-items:center;justify-content:center;flex-direction:column;
+    background:linear-gradient(160deg,#E4673C,#B23F19);color:#FFF9F1;
+    font-family:"Microsoft YaHei","PingFang SC",system-ui,sans-serif;user-select:none;
+    border-radius:12px;overflow:hidden;position:relative}
+  .grain{position:absolute;inset:0;background:radial-gradient(circle at 22% 10%,rgba(255,255,255,.16),transparent 42%),
+    radial-gradient(circle at 80% 92%,rgba(0,0,0,.18),transparent 50%)}
+  .mark{width:84px;height:84px;border-radius:22px;background:rgba(255,255,255,.13);
+    border:1px solid rgba(255,255,255,.26);display:flex;align-items:center;justify-content:center;
+    font-family:serif;font-size:46px;font-weight:700;box-shadow:0 10px 28px rgba(0,0,0,.18);position:relative}
+  h1{font-size:23px;letter-spacing:.14em;margin:20px 0 6px;font-weight:700;position:relative}
+  .sub{font-size:11px;letter-spacing:.26em;color:rgba(255,249,241,.6);text-transform:uppercase;position:relative}
+  .bar{width:120px;height:2px;background:rgba(255,255,255,.22);margin-top:26px;overflow:hidden;position:relative}
+  .bar::after{content:"";display:block;width:45%;height:100%;background:rgba(255,249,241,.9);animation:load 1.15s ease-in-out infinite}
+  @keyframes load{0%{transform:translateX(-110%)}100%{transform:translateX(330%)}}
+</style></head>
+<body><div class="grain"></div><div class="mark">食</div><h1>食光菜谱</h1>
+<div class="sub">Shiguang Recipe</div><div class="bar"></div></body></html>

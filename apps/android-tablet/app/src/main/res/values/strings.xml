@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">食光菜谱</string>
+    <string name="scan_short">扫一扫</string>
+    <string name="scan_long">扫一扫登录</string>
+</resources>

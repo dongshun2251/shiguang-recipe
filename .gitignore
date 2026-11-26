@@ -1,0 +1,33 @@
+# 网站本地配置与数据
+website/config/config.php
+website/config/install.lock
+website/config/backup/
+website/uploads/*
+!website/uploads/.gitkeep
+website/shots/
+
+# 安卓构建与签名
+apps/android/.gradle/
+apps/android/local.properties
+apps/android/keystore/
+apps/android/keystore.properties
+apps/android/app/build/
+apps/android-tablet/.gradle/
+apps/android-tablet/local.properties
+apps/android-tablet/keystore/
+apps/android-tablet/keystore.properties
+apps/android-tablet/app/build/
+
+# 桌面依赖与构建产物
+apps/desktop/node_modules/
+apps/desktop/release/
+apps/desktop/dist/
+apps/desktop/*.log
+
+# 大文件安装包：用 GitHub Releases 发布
+releases/*.exe
+releases/*.zip
+
+# 系统文件
+.DS_Store
+Thumbs.db

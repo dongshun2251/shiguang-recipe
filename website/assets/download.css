@@ -1,0 +1,338 @@
+/* ============================================================
+   食光菜谱 · App 下载页
+   独立落地页，不依赖前台软件窗口 CSS
+   ============================================================ */
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; overflow-x: hidden; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: #1B1712;
+  background: #F1EADD;
+  font-family: "Noto Sans CJK SC", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; }
+img { max-width: 100%; display: block; }
+
+.dl-ico { display: inline-flex; align-items: center; justify-content: center; width: 18px; height: 18px; flex: 0 0 18px; }
+.dl-ico svg { width: 100%; height: 100%; display: block; }
+
+.dl-bg { position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; }
+.dl-bg::before {
+  content: ""; position: absolute; inset: 0;
+  background:
+    radial-gradient(900px 620px at 80% -12%, rgba(200, 80, 43, .14), transparent 64%),
+    radial-gradient(760px 540px at 4% 48%, rgba(176, 134, 55, .09), transparent 60%),
+    repeating-linear-gradient(45deg, rgba(255,255,255,.28) 0 1px, transparent 1px 8px);
+}
+.dl-bg span { position: absolute; border: 1px solid rgba(27,23,18,.07); border-radius: 999px; }
+.dl-bg span:nth-child(1) { width: 520px; height: 520px; right: -180px; top: 190px; }
+.dl-bg span:nth-child(2) { width: 280px; height: 280px; left: -120px; top: 620px; }
+.dl-bg span:nth-child(3) { width: 9px; height: 9px; background: var(--brand); border: 0; left: 9%; top: 180px; box-shadow: 0 0 0 10px rgba(200,80,43,.08); }
+
+/* ---------- 顶部 ---------- */
+.dl-top {
+  width: min(1180px, calc(100% - 48px));
+  margin: 0 auto;
+  height: 86px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  border-bottom: 1px solid rgba(27,23,18,.09);
+}
+.dl-brand { display: flex; align-items: center; gap: 11px; min-width: 0; }
+.dl-logo {
+  width: 34px; height: 34px; flex: 0 0 34px;
+  display: grid; place-items: center;
+  border-radius: 9px;
+  background: linear-gradient(160deg, #E4673C, #B23F19);
+  color: #fff;
+  font-family: "Noto Serif CJK SC", "Noto Serif SC", "Songti SC", Georgia, serif;
+  font-size: 19px; font-weight: 700;
+  box-shadow: 0 4px 12px rgba(178,63,25,.22);
+}
+.dl-brand-txt { display: flex; flex-direction: column; line-height: 1.1; }
+.dl-brand-txt b { font-size: 15px; letter-spacing: .01em; }
+.dl-brand-txt em { font-style: normal; font-size: 9.5px; letter-spacing: .16em; color: #938878; text-transform: uppercase; margin-top: 3px; }
+.dl-nav { display: flex; align-items: center; gap: 8px; }
+.dl-nav a { display: inline-flex; align-items: center; gap: 6px; color: #6F6559; font-size: 11.5px; font-weight: 600; padding: 7px 11px; border-radius: 8px; }
+.dl-nav a:hover { background: rgba(255,255,255,.54); color: #1B1712; }
+.dl-nav .dl-ico { width: 14px; height: 14px; flex-basis: 14px; }
+.dl-nav-user { background: rgba(255,255,255,.44); border: 1px solid rgba(27,23,18,.08); }
+
+/* ---------- 主容器 ---------- */
+.dl-main { width: min(1180px, calc(100% - 48px)); margin: 0 auto; padding-bottom: 86px; }
+
+/* ---------- 首屏 ---------- */
+.dl-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.02fr) minmax(420px, .98fr);
+  align-items: center;
+  gap: 52px;
+  min-height: 660px;
+  padding: 62px 0 48px;
+}
+.dl-eyebrow { display: flex; align-items: center; gap: 8px; font-size: 10px; letter-spacing: .25em; font-weight: 700; color: var(--brand); text-transform: uppercase; }
+.dl-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--brand); box-shadow: 0 0 0 4px var(--brand-soft); }
+.dl-hero h1 {
+  margin: 20px 0 18px;
+  font-family: "Noto Serif CJK SC", "Noto Serif SC", "Songti SC", Georgia, serif;
+  font-size: clamp(42px, 5vw, 68px);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -.045em;
+  max-width: 700px;
+}
+.dl-hero h1 em { font-style: normal; color: var(--brand); }
+.dl-lead { margin: 0; max-width: 530px; font-size: 15px; line-height: 1.9; color: #6F6559; }
+.dl-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+.dl-chips span {
+  display: inline-flex; align-items: center; gap: 7px;
+  padding: 7px 11px;
+  border: 1px solid rgba(27,23,18,.1);
+  border-radius: 999px;
+  background: rgba(255,253,249,.58);
+  color: #574E43;
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: .02em;
+}
+.dl-chips .dl-ico { width: 13px; height: 13px; flex-basis: 13px; color: var(--brand); }
+.dl-hero-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 32px; }
+.dl-btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  min-height: 46px; padding: 0 21px;
+  border: 1px solid transparent; border-radius: 10px;
+  font-size: 12.5px; font-weight: 700; letter-spacing: .01em;
+  transition: transform .16s ease, background .16s ease, box-shadow .16s ease;
+}
+.dl-btn:hover { transform: translateY(-1px); }
+.dl-btn .dl-ico { width: 16px; height: 16px; flex-basis: 16px; }
+.dl-btn-primary { background: var(--brand); color: #fff; box-shadow: 0 9px 24px -10px rgba(200,80,43,.62); }
+.dl-btn-primary:hover { background: var(--brand-2); box-shadow: 0 12px 28px -10px rgba(200,80,43,.7); }
+.dl-btn-ghost { background: rgba(255,253,249,.54); border-color: rgba(27,23,18,.14); color: #453D33; }
+.dl-btn-ghost:hover { background: #FFFDF9; }
+.dl-trust { display: flex; align-items: center; gap: 7px; margin-top: 20px; color: #938878; font-size: 10.5px; }
+.dl-trust .dl-ico { width: 13px; height: 13px; flex-basis: 13px; color: #7D7365; }
+
+/* ---------- 首屏设备舞台 ---------- */
+.dl-stage { position: relative; height: 520px; min-width: 0; }
+.dl-orbit { position: absolute; border: 1px solid rgba(200,80,43,.17); border-radius: 50%; pointer-events: none; }
+.dl-orbit.o1 { width: 330px; height: 330px; right: -20px; top: -14px; }
+.dl-orbit.o2 { width: 440px; height: 440px; left: -40px; bottom: -40px; border-color: rgba(27,23,18,.09); }
+
+.dl-desktop {
+  position: absolute; right: 0; top: 12px; width: 485px;
+  border-radius: 15px; overflow: hidden;
+  background: #FFFDF9;
+  border: 1px solid rgba(27,23,18,.14);
+  box-shadow: 0 28px 70px -24px rgba(45,31,15,.38), 0 2px 6px rgba(45,31,15,.08);
+  transform: rotate(-2.2deg);
+}
+.dl-winbar { height: 34px; display: flex; align-items: center; gap: 8px; padding: 0 12px; background: #221E1A; color: #F6F0E6; }
+.dl-mini-logo { width: 19px; height: 19px; flex: 0 0 19px; border-radius: 5px; display: grid; place-items: center; background: linear-gradient(160deg,#E4673C,#B23F19); color: #fff; font-family: Georgia,serif; font-size: 11px; font-weight: 700; }
+.dl-winbar b { font-size: 9.5px; letter-spacing: .06em; }
+.dl-window-dots { margin-left: auto; display: flex; gap: 4px; }
+.dl-window-dots i { width: 5px; height: 5px; border-radius: 50%; background: rgba(255,255,255,.24); }
+.dl-winbody { display: grid; grid-template-columns: 110px 1fr; min-height: 246px; background: #F7F2E9; }
+.dl-win-side { padding: 15px 10px; border-right: 1px solid #E9E1D4; background: #FBF7F0; display: flex; flex-direction: column; gap: 5px; }
+.dl-win-side span { padding: 7px 9px; border-radius: 6px; font-size: 8.5px; color: #8B8173; }
+.dl-win-side .dl-side-on { background: var(--brand); color: #fff; font-weight: 700; }
+.dl-win-main { padding: 16px 18px; }
+.dl-win-hero { padding: 13px 14px 15px; border-radius: 11px; background: linear-gradient(135deg,#FFF9F0,#F3E5D4); border: 1px solid #E8D9C5; }
+.dl-win-hero small { display: block; color: #9B8B77; font-size: 8px; }
+.dl-win-hero b { display: block; margin-top: 5px; font-family: "Noto Serif CJK SC", "Noto Serif SC", serif; font-size: 17px; line-height: 1.32; font-weight: 700; color: #2A2118; }
+.dl-pill { display: inline-block; margin-top: 10px; padding: 5px 9px; border-radius: 5px; background: var(--brand); color: #fff; font-size: 7.5px; font-weight: 700; }
+.dl-win-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px; }
+.dl-win-cards div { padding: 9px 10px; border: 1px solid #E9E1D4; border-radius: 8px; background: #FFFDF9; }
+.dl-win-cards span { display: block; color: #A09280; font-size: 7px; }
+.dl-win-cards b { display: block; margin-top: 3px; font-size: 9.5px; }
+
+.dl-phone {
+  position: absolute; left: 12px; bottom: -8px; width: 244px; height: 474px;
+  border-radius: 34px; padding: 9px;
+  background: #1E1A17;
+  box-shadow: 0 34px 60px -20px rgba(45,31,15,.5), inset 0 0 0 1px rgba(255,255,255,.09);
+  transform: rotate(3.2deg);
+}
+.dl-notch { position: absolute; top: 15px; left: 50%; transform: translateX(-50%); width: 72px; height: 17px; border-radius: 999px; background: #1E1A17; z-index: 2; }
+.dl-phone-screen { height: 100%; border-radius: 26px; overflow: hidden; background: #F7F2E9; display: flex; flex-direction: column; }
+.dl-ph-top { display: flex; align-items: center; gap: 6px; padding: 11px 12px 8px; background: #221E1A; color: #F6F0E6; }
+.dl-ph-top b { font-size: 9.5px; letter-spacing: .03em; }
+.dl-ph-dot { margin-left: auto; width: 15px; height: 15px; border-radius: 50%; background: linear-gradient(150deg,#E9D8C4,#CDB99C); }
+.dl-ph-hero { padding: 14px 13px 0; font-family: "Noto Serif CJK SC", "Noto Serif SC", serif; font-size: 23px; line-height: 1.2; font-weight: 700; letter-spacing: -.03em; color: #261E16; }
+.dl-ph-hero em { font-style: normal; color: var(--brand); }
+.dl-ph-search { margin: 12px 12px 9px; padding: 8px 10px; border: 1px solid #E6DCCD; border-radius: 7px; background: #FFFDF9; color: #A29584; font-size: 8px; display: flex; align-items: center; }
+.dl-ph-search span { margin-left: auto; width: 16px; height: 16px; border-radius: 5px; background: var(--brand); opacity: .9; }
+.dl-ph-card { display: flex; align-items: center; gap: 8px; margin: 0 12px 7px; padding: 7px 8px; background: #FFFDF9; border: 1px solid #ECE3D6; border-radius: 8px; }
+.dl-ph-thumb { width: 34px; height: 34px; flex: 0 0 34px; border-radius: 7px; background: linear-gradient(145deg,#D98552,#A74324); position: relative; overflow: hidden; }
+.dl-ph-thumb::after { content: ""; position: absolute; inset: 7px; border-radius: 50%; border: 1px solid rgba(255,255,255,.42); }
+.dl-ph-thumb.warm { background: linear-gradient(145deg,#85A47B,#4F714D); }
+.dl-ph-card b { display: block; font-size: 9px; }
+.dl-ph-card small { display: block; margin-top: 2px; color: #A29584; font-size: 7.5px; }
+.dl-ph-card > span { margin-left: auto; color: #B8AA98; font-size: 13px; }
+.dl-ph-nav { margin-top: auto; height: 38px; border-top: 1px solid #E9E1D4; background: #FFFDF9; display: flex; align-items: center; justify-content: space-around; font-size: 7px; color: #9A8E7E; }
+.dl-ph-nav span:first-child { color: var(--brand); font-weight: 700; }
+
+.dl-stage-note {
+  position: absolute; right: 14px; bottom: 22px; z-index: 5;
+  display: flex; flex-direction: column; gap: 2px;
+  padding: 11px 14px;
+  border-radius: 10px;
+  background: rgba(255,253,249,.82);
+  border: 1px solid rgba(27,23,18,.11);
+  box-shadow: 0 12px 30px -16px rgba(45,31,15,.35);
+  backdrop-filter: blur(8px);
+}
+.dl-stage-note .dl-ico { color: var(--brand); width: 14px; height: 14px; margin-bottom: 2px; }
+.dl-stage-note b { font-size: 10.5px; }
+.dl-stage-note small { color: #8D8273; font-size: 8.5px; }
+
+/* ---------- 下载区 ---------- */
+.dl-downloads { scroll-margin-top: 26px; padding-top: 46px; }
+.dl-section-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 28px; margin-bottom: 22px; }
+.dl-section-head h2 { margin: 10px 0 0; font-family: "Noto Serif CJK SC", "Noto Serif SC", "Songti SC", serif; font-size: clamp(27px, 3.2vw, 38px); line-height: 1.2; letter-spacing: -.035em; font-weight: 700; }
+.dl-section-head h2 em { font-style: normal; color: var(--brand); }
+.dl-section-head > p { max-width: 330px; margin: 0 0 4px; color: #837767; font-size: 11.5px; line-height: 1.8; text-align: right; }
+.dl-section-head > p b { color: #5C5145; font-weight: 600; }
+
+.dl-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 16px; }
+.dl-card {
+  position: relative; overflow: hidden;
+  padding: 22px 22px 18px;
+  border: 1px solid rgba(27,23,18,.12);
+  border-radius: 18px;
+  background: rgba(255,253,249,.86);
+  box-shadow: 0 2px 4px rgba(45,31,15,.04), 0 20px 50px -30px rgba(45,31,15,.28);
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.dl-card:hover { transform: translateY(-3px); box-shadow: 0 4px 8px rgba(45,31,15,.05), 0 26px 58px -28px rgba(45,31,15,.36); }
+.dl-card::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 3px; background: var(--brand); opacity: .9; }
+.dl-card.is-windows::before { background: #2E6B57; }
+.dl-card.is-ios::before, .dl-card.is-mac::before { background: #B08637; }
+.dl-card.is-web::before, .dl-card.is-other::before { background: #6C6255; }
+.dl-card-top { display: flex; align-items: center; gap: 8px; }
+.dl-platform-ico { width: 43px; height: 43px; flex: 0 0 43px; border-radius: 12px; display: grid; place-items: center; background: var(--brand-soft); color: var(--brand); }
+.dl-platform-ico .dl-ico { width: 21px; height: 21px; }
+.dl-card.is-windows .dl-platform-ico { background: #E7F0EB; color: #2E6B57; }
+.dl-card.is-ios .dl-platform-ico, .dl-card.is-mac .dl-platform-ico { background: #F5EEDF; color: #9B7328; }
+.dl-platform-tag { margin-left: auto; padding: 4px 7px; border-radius: 5px; background: rgba(27,23,18,.06); color: #7B7062; font-size: 8.5px; font-weight: 700; letter-spacing: .12em; }
+.dl-ver { color: #9A8E7E; font-size: 9.5px; font-weight: 600; }
+.dl-card h3 { margin: 16px 0 6px; font-family: "Noto Serif CJK SC", "Noto Serif SC", serif; font-size: 23px; letter-spacing: -.02em; line-height: 1.3; }
+.dl-card p { min-height: 38px; margin: 0 0 14px; color: #837767; font-size: 11.5px; line-height: 1.75; }
+.dl-card-meta { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
+.dl-card-meta span { padding: 3px 7px; border-radius: 4px; background: #F5EFE5; color: #8D8171; font-size: 9px; }
+.dl-card-btn { width: 100%; background: var(--brand); color: #fff; box-shadow: none; }
+.dl-card-btn:hover { background: var(--brand-2); }
+.dl-card.is-windows .dl-card-btn { background: #2E6B57; }
+.dl-card.is-windows .dl-card-btn:hover { background: #245445; }
+.dl-card-btn.is-disabled { background: #E7DFD2; color: #9B8F7E; cursor: not-allowed; }
+.dl-card-actions { display: grid; grid-template-columns: 1.08fr .92fr; gap: 8px; }
+.dl-card-actions .dl-card-btn, .dl-card-actions .dl-card-dl { min-width: 0; padding: 0 12px; }
+.dl-card-actions .dl-card-dl { min-height: 46px; border-color: rgba(27,23,18,.13); background: #FFFDF9; font-size: 11.5px; }
+.dl-card-actions .dl-card-dl:hover { background: #F7F0E6; }
+.dl-card.is-windows .dl-open-app { background: #2E6B57; }
+.dl-card.is-windows .dl-open-app:hover { background: #245445; }
+.dl-open-app.is-opening { opacity: .78; pointer-events: none; }
+.dl-open-app.is-opening:after { content: "…"; }
+.dl-card p.dl-card-hint { min-height: 0; margin: 7px 0 0; color: #9B8F7E; font-size: 9.5px; line-height: 1.6; }
+.dl-empty { display: flex; align-items: flex-start; gap: 16px; padding: 28px 30px; border: 1px dashed #D5C6B2; border-radius: 18px; background: rgba(255,253,249,.56); }
+.dl-empty-ico { width: 48px; height: 48px; flex: 0 0 48px; border-radius: 13px; display: grid; place-items: center; background: var(--brand-soft); color: var(--brand); }
+.dl-empty-ico .dl-ico { width: 24px; height: 24px; }
+.dl-empty b { display: block; font-family: "Noto Serif CJK SC", serif; font-size: 19px; }
+.dl-empty p { margin: 5px 0 12px; max-width: 540px; color: #837767; font-size: 12px; line-height: 1.8; }
+
+/* ---------- 三个特点 ---------- */
+.dl-points { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 60px; }
+.dl-point { position: relative; overflow: hidden; padding: 24px 22px 22px; border-radius: 16px; background: rgba(255,253,249,.5); border: 1px solid rgba(27,23,18,.09); }
+.dl-point-no { position: absolute; right: 16px; top: 7px; font-family: Georgia, serif; font-size: 40px; line-height: 1; color: rgba(27,23,18,.07); }
+.dl-point > .dl-ico { width: 25px; height: 25px; color: var(--brand); margin-bottom: 14px; }
+.dl-point h3 { margin: 0 0 7px; font-family: "Noto Serif CJK SC", serif; font-size: 18px; }
+.dl-point p { margin: 0; color: #837767; font-size: 11.5px; line-height: 1.8; }
+
+/* ---------- 三步 ---------- */
+.dl-how { margin-top: 58px; }
+.dl-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.dl-step { padding: 22px; border-top: 1px solid rgba(27,23,18,.12); }
+.dl-step b { display: block; font-family: Georgia, serif; font-size: 12px; color: var(--brand); letter-spacing: .08em; }
+.dl-step h3 { margin: 9px 0 6px; font-family: "Noto Serif CJK SC", serif; font-size: 18px; }
+.dl-step p { margin: 0; color: #837767; font-size: 11.5px; line-height: 1.8; }
+
+/* ---------- FAQ ---------- */
+.dl-faq { margin-top: 54px; }
+.dl-faq-list { border-top: 1px solid rgba(27,23,18,.12); }
+.dl-faq details { border-bottom: 1px solid rgba(27,23,18,.12); }
+.dl-faq summary { list-style: none; display: flex; align-items: center; gap: 18px; padding: 16px 2px; font-size: 13px; font-weight: 600; cursor: pointer; }
+.dl-faq summary::-webkit-details-marker { display: none; }
+.dl-faq summary span { margin-left: auto; font-size: 18px; color: #9C9080; font-weight: 400; transition: transform .2s; }
+.dl-faq details[open] summary span { transform: rotate(45deg); color: var(--brand); }
+.dl-faq p { margin: 0; padding: 0 2px 18px; max-width: 780px; color: #837767; font-size: 12px; line-height: 1.9; }
+
+/* ---------- 页脚 ---------- */
+.dl-foot { width: min(1180px, calc(100% - 48px)); margin: 0 auto; padding: 26px 0 42px; border-top: 1px solid rgba(27,23,18,.1); display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+.dl-foot-brand { display: flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 700; }
+.dl-foot-brand .dl-logo { width: 25px; height: 25px; flex-basis: 25px; border-radius: 7px; font-size: 14px; }
+.dl-foot-note { color: #948878; font-size: 10px; }
+.dl-foot-links { margin-left: auto; display: flex; gap: 14px; }
+.dl-foot-links a { color: #837767; font-size: 10.5px; }
+.dl-foot-links a:hover { color: var(--brand); }
+
+/* ---------- 手机 ---------- */
+@media (max-width: 980px) {
+  .dl-hero { grid-template-columns: 1fr; gap: 22px; min-height: 0; padding-top: 38px; }
+  .dl-stage { height: 460px; max-width: 560px; width: 100%; margin: 0 auto; }
+  .dl-desktop { width: 420px; right: 0; top: 20px; }
+  .dl-phone { width: 214px; height: 420px; left: 10px; bottom: 0; }
+  .dl-section-head { align-items: flex-start; flex-direction: column; gap: 10px; }
+  .dl-section-head > p { text-align: left; max-width: 580px; }
+  .dl-points, .dl-steps { grid-template-columns: 1fr; }
+  .dl-point { padding: 20px; }
+  .dl-point-no { font-size: 32px; }
+  .dl-step { padding: 17px 2px; }
+}
+@media (max-width: 640px) {
+  .dl-top { width: calc(100% - 32px); height: 68px; }
+  .dl-main, .dl-foot { width: calc(100% - 32px); }
+  .dl-brand-txt em { display: none; }
+  .dl-nav .dl-nav-back { font-size: 10.5px; width: auto; height: 32px; padding: 0 3px; justify-content: center; gap: 4px; }
+  .dl-nav .dl-nav-back .dl-ico { width: 14px; height: 14px; flex-basis: 14px; }
+  .dl-nav-user { font-size: 10.5px; padding: 6px 9px; }
+  .dl-hero { padding-top: 28px; padding-bottom: 20px; }
+  .dl-hero h1 { margin-top: 16px; font-size: clamp(34px, 10.4vw, 48px); letter-spacing: -.05em; }
+  .dl-lead { font-size: 13.5px; line-height: 1.8; }
+  .dl-chips { gap: 6px; margin-top: 18px; }
+  .dl-chips span { font-size: 9.5px; padding: 6px 9px; }
+  .dl-hero-actions { margin-top: 24px; }
+  .dl-btn { min-height: 44px; padding: 0 16px; font-size: 11.5px; }
+  .dl-trust { font-size: 9.5px; line-height: 1.6; }
+  .dl-stage { height: 390px; margin-top: 4px; overflow: hidden; }
+  .dl-desktop { display: none; }
+  .dl-phone { width: 198px; height: 388px; left: 50%; bottom: 0; transform: translateX(-50%) rotate(2.4deg); }
+  .dl-stage-note { right: 0; bottom: 2px; padding: 8px 10px; }
+  .dl-stage-note small { display: none; }
+  .dl-orbit.o1 { width: 240px; height: 240px; right: -40px; top: 8px; }
+  .dl-orbit.o2 { width: 300px; height: 300px; left: -60px; bottom: -30px; }
+  .dl-downloads { padding-top: 34px; }
+  .dl-section-head h2 { font-size: 28px; }
+  .dl-section-head > p { font-size: 10.5px; }
+  .dl-grid { grid-template-columns: 1fr; gap: 12px; }
+  .dl-card { padding: 18px 18px 16px; border-radius: 15px; }
+  .dl-card h3 { font-size: 21px; }
+  .dl-card-actions { grid-template-columns: 1fr; }
+  .dl-empty { padding: 20px; }
+  .dl-points { margin-top: 42px; }
+  .dl-how, .dl-faq { margin-top: 42px; }
+  .dl-steps { gap: 0; }
+  .dl-foot { margin-top: 10px; padding: 22px 0 32px; }
+  .dl-foot-links { width: 100%; margin-left: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .dl-card, .dl-btn { transition: none; }
+}

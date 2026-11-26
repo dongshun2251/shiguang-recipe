@@ -1,0 +1,568 @@
+/* 生成文件：把 base.css 中 @media(max-width:900px) 的规则复制为 html.ua-mobile 作用域
+   目的：手机浏览器若以“电脑版”约 980px 视口渲染，也能得到完整一致的手机布局 */
+html.ua-mobile .desk-only { display: none !important;
+}
+html.ua-mobile body {
+    background: #F5F0E7;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+}
+html.ua-mobile .window { display: flex; flex-direction: column; min-height: 100vh; background: var(--surface);
+}
+html.ua-mobile .mob-statusbar {
+    height: 42px;
+    flex: 0 0 42px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 22px 0 24px;
+    background: #1F1C19;
+    color: #F2EBE0;
+    font-size: 12.5px;
+    font-weight: 600;
+    letter-spacing: .02em;
+    padding-top: 4px;
+}
+html.ua-mobile .mob-statusbar .sb-r { display: flex; align-items: center; gap: 6px;
+}
+html.ua-mobile .mob-statusbar .bars { display: flex; align-items: flex-end; gap: 2px;
+}
+html.ua-mobile .mob-statusbar .bars i { width: 3px; background: #F2EBE0; border-radius: 1px; display: block;
+}
+html.ua-mobile .mob-statusbar .bars i:nth-child(1) { height: 4px;
+}
+html.ua-mobile .mob-statusbar .bars i:nth-child(2) { height: 6px;
+}
+html.ua-mobile .mob-statusbar .bars i:nth-child(3) { height: 8px;
+}
+html.ua-mobile .mob-statusbar .bars i:nth-child(4) { height: 10px; opacity: .45;
+}
+html.ua-mobile .mob-statusbar .batt {
+    width: 22px; height: 11px; border-radius: 3px;
+    border: 1px solid rgba(242, 235, 224, .6);
+    position: relative; padding: 1.5px;
+}
+html.ua-mobile .mob-statusbar .batt::after {
+    content: ""; position: absolute; right: -3.5px; top: 3px;
+    width: 2px; height: 4px; border-radius: 0 1px 1px 0;
+    background: rgba(242, 235, 224, .6);
+}
+html.ua-mobile .mob-statusbar .batt i { display: block; height: 100%; width: 72%; background: #F2EBE0; border-radius: 1.5px;
+}
+html.ua-mobile .titlebar {
+    flex: 0 0 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 12px 0 16px;
+    background: #1F1C19;
+    color: #F6F0E6;
+    position: sticky;
+    top: 0;
+    z-index: 40;
+}
+html.ua-mobile .tb-brand { display: flex; align-items: center; gap: 9px; min-width: 0; flex: 1;
+}
+html.ua-mobile .logo {
+    width: 26px; height: 26px; flex: 0 0 26px;
+    display: grid; place-items: center;
+    border-radius: 7px;
+    background: linear-gradient(160deg, #E4673C, #B23F19);
+    color: #fff; font-family: var(--font-serif); font-size: 15px; font-weight: 700;
+}
+html.ua-mobile .tb-name { font-size: 15px; font-weight: 700; letter-spacing: .02em;
+}
+html.ua-mobile .tb-name em { display: none;
+}
+html.ua-mobile .tb-menu { display: none;
+}
+html.ua-mobile .tb-tools { margin-left: auto; display: flex; align-items: center; gap: 4px;
+}
+html.ua-mobile .tbtn {
+    width: 34px; height: 34px;
+    display: inline-flex; align-items: center; justify-content: center;
+    border: 0; border-radius: 9px;
+    background: rgba(255, 255, 255, .08);
+    color: #F0E7D9;
+    padding: 0;
+}
+html.ua-mobile .tbtn .lbl { display: none;
+}
+html.ua-mobile .tbtn .ico { width: 17px; height: 17px;
+}
+html.ua-mobile .tbtn.is-on { background: var(--brand); color: #fff;
+}
+html.ua-mobile .tbtn.icon-only { background: transparent;
+}
+html.ua-mobile .appbody { display: block;
+}
+html.ua-mobile .sidebar { display: none;
+}
+html.ua-mobile .statusbar { display: none;
+}
+html.ua-mobile .main {
+    padding-bottom: 78px;
+    background: var(--surface);
+    overflow-x: hidden;
+}
+html.ua-mobile .tabbar {
+    position: fixed;
+    left: 0; right: 0; bottom: 0;
+    z-index: 50;
+    display: flex;
+    background: rgba(255, 253, 250, .94);
+    backdrop-filter: blur(12px);
+    border-top: 1px solid var(--line);
+    padding: 8px 6px calc(8px + env(safe-area-inset-bottom));
+}
+html.ua-mobile .tabbar a {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    font-size: 10.5px;
+    color: #9A9184;
+    padding: 2px 0;
+}
+html.ua-mobile .tabbar a .ico { width: 21px; height: 21px;
+}
+html.ua-mobile .tabbar a.on { color: var(--brand); font-weight: 600;
+}
+html.ua-mobile .tabbar a.on .ico { transform: translateY(-1px);
+}
+html.ua-mobile .page { padding: 0 16px 24px;
+}
+html.ua-mobile .page-head { padding: 14px 0 10px; align-items: center; row-gap: 10px;
+}
+html.ua-mobile .page-head .actions { width: 100%; margin-left: 0;
+}
+html.ua-mobile .page-head .actions .btn { flex: 1;
+}
+html.ua-mobile .page-head h1 { font-size: 20px;
+}
+html.ua-mobile .section-head { margin: 20px 0 12px;
+}
+html.ua-mobile .section-head h2 { font-size: 16px;
+}
+html.ua-mobile .rgrid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px;
+}
+html.ua-mobile .rcard { border-radius: 13px;
+}
+html.ua-mobile .rcard-body { padding: 9px 10px 10px; gap: 5px;
+}
+html.ua-mobile .rcard-body h3 { font-size: 13px;
+}
+html.ua-mobile .rcard-body p { font-size: 11px; -webkit-line-clamp: 1;
+}
+html.ua-mobile .rcard-foot { font-size: 10px; padding-top: 7px;
+}
+html.ua-mobile .rcard-media { aspect-ratio: 1/1;
+}
+html.ua-mobile .hero { min-height: 340px; border-radius: 15px;
+}
+html.ua-mobile .hero::after {
+    background: linear-gradient(180deg, rgba(18,12,8,.5) 0%, rgba(18,12,8,.2) 34%, rgba(18,12,8,.55) 66%, rgba(18,12,8,.9) 100%);
+}
+html.ua-mobile .hero-in { max-width: 100%; padding: 20px;
+}
+html.ua-mobile .hero h1 { font-size: 25px;
+}
+html.ua-mobile .hero p { font-size: 12px; -webkit-line-clamp: 3; display: -webkit-box; -webkit-box-orient: vertical; overflow: hidden;
+}
+html.ua-mobile .hero-meta { gap: 12px; font-size: 11px;
+}
+html.ua-mobile .cat-strip {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    margin: 12px -16px 0;
+    padding: 0 16px 4px;
+    scrollbar-width: none;
+}
+html.ua-mobile .cat-strip::-webkit-scrollbar { display: none;
+}
+html.ua-mobile .cat-tile { flex: 0 0 88px; padding: 10px; border-radius: 11px;
+}
+html.ua-mobile .cat-tile .ico { width: 17px; height: 17px;
+}
+html.ua-mobile .cat-tile b { font-size: 12px;
+}
+html.ua-mobile .filterbar .right > span.desk-only { display: none;
+}
+html.ua-mobile .filterbar .fl:nth-of-type(3) { display: none;
+}
+html.ua-mobile .filterbar .right select { width: 104px;
+}
+html.ua-mobile .filterbar { margin: 0 -16px 12px; border-radius: 0; border-left: 0; border-right: 0; padding: 9px 16px; gap: 8px; overflow-x: auto; flex-wrap: nowrap; scrollbar-width: none;
+}
+html.ua-mobile .filterbar::-webkit-scrollbar { display: none;
+}
+html.ua-mobile .filterbar .right { margin-left: 0;
+}
+html.ua-mobile .detail-crumb { display: none;
+}
+html.ua-mobile .detail-hero { margin: -16px -16px 0; border-radius: 0; aspect-ratio: 4/3.2; max-height: none;
+}
+html.ua-mobile .detail-hero .hero-bot { left: 16px; right: 16px; bottom: 16px;
+}
+html.ua-mobile .detail-hero h1 { font-size: 22px;
+}
+html.ua-mobile .detail-hero .hm { font-size: 10.5px; gap: 10px; margin-top: 7px;
+}
+html.ua-mobile .card [style*="grid-template-columns:1fr 1fr"] { grid-template-columns: 1fr !important;
+}
+html.ua-mobile .card [style*="grid-template-columns:1fr 1fr 1fr"] { grid-template-columns: 1fr 1fr !important;
+}
+html.ua-mobile .card [style*="grid-template-columns:1fr 90px"] { grid-template-columns: 1fr 84px !important;
+}
+html.ua-mobile .tabs { overflow-x: auto; scrollbar-width: none;
+}
+html.ua-mobile .tabs::-webkit-scrollbar { display: none;
+}
+html.ua-mobile .tabs a { flex: 0 0 auto; white-space: nowrap;
+}
+html.ua-mobile .card { padding: 15px 16px; border-radius: 13px;
+}
+html.ua-mobile .card-head { flex-wrap: wrap; gap: 8px;
+}
+html.ua-mobile .card-head .hint { display: none;
+}
+html.ua-mobile .ing-grid { grid-template-columns: 1fr; gap: 0;
+}
+html.ua-mobile .step { grid-template-columns: 64px 1fr; gap: 11px; padding: 10px;
+}
+html.ua-mobile .step .num span { font-size: 22px;
+}
+html.ua-mobile .bottombar { display: flex;
+}
+html.ua-mobile .admin-stat-grid { grid-template-columns: 1fr 1fr; gap: 10px;
+}
+html.ua-mobile .stat { padding: 12px 13px;
+}
+html.ua-mobile .stat .v { font-size: 22px;
+}
+html.ua-mobile .toolbar { gap: 7px; padding: 10px 12px;
+}
+html.ua-mobile .toolbar .search-field { min-width: 0; flex: 1;
+}
+html.ua-mobile .toolbar .right { width: 100%; margin-left: 0;
+}
+html.ua-mobile .install-wrap { padding: 18px 16px 40px;
+}
+html.ua-mobile .stepper .st .tx { display: none;
+}
+html.ua-mobile .stepper .st { flex: 0 0 auto;
+}
+html.ua-mobile .stepper .line { margin: 0 8px;
+}
+html.ua-mobile .auth-card { padding: 24px 20px; border-radius: 14px;
+}
+html.ua-mobile .auth-wrap { padding: 24px 18px 40px; min-height: auto; align-items: flex-start;
+}
+html.ua-mobile .profile-hero { padding: 16px; gap: 12px;
+}
+html.ua-mobile .profile-hero .nums { gap: 14px;
+}
+html.ua-mobile .editor-step { grid-template-columns: 22px 1fr;
+}
+html.ua-mobile .editor-step .drop { display: none;
+}
+html.ua-mobile .form-grid { grid-template-columns: 1fr !important;
+}
+html.ua-mobile .form-grid .full { grid-column: auto;
+}
+html.ua-mobile .detail-actions { display: flex;
+}
+html.ua-mobile .detail-actions .btn { flex: 1;
+}
+html.ua-mobile .main.has-detail-actions { padding-bottom: 92px;
+}
+html.ua-mobile .ing-row-edit { grid-template-columns: 1fr 88px 32px;
+}
+html.ua-mobile .rep-row { grid-template-columns: 32px 1fr 32px;
+}
+html.ua-mobile .rep-row .du-field { grid-column: 2 / 3;
+}
+html.ua-mobile .sres img { width: 88px; height: 88px; flex: 0 0 88px;
+}
+html.ua-mobile .sres h3 { font-size: 13.5px;
+}
+html.ua-mobile .sres p { -webkit-line-clamp: 1;
+}
+html.ua-mobile .ing-edit { grid-template-columns: 1.4fr 1fr 26px; gap: 6px;
+}
+html.ua-mobile .auth-card .stripe { margin: -24px -20px 18px;
+}
+html.ua-mobile table.tb { min-width: 820px;
+}
+html.ua-mobile .table-wrap { margin: 0 -14px; padding: 0 14px 4px;
+}
+html.ua-mobile .main.has-detail-actions .page-head { padding-bottom: 0;
+}
+html.ua-mobile .main.has-detail-actions .page-head .actions { display: none;
+}
+html.ua-mobile .main.has-detail-actions .detail-hero { margin-top: 10px;
+}
+html.ua-mobile .filterbar { display: flex; gap: 8px; align-items: center;
+}
+html.ua-mobile .filterbar .fl { flex: 1; display: flex; align-items: center; gap: 6px;
+}
+html.ua-mobile .filterbar .fl select { flex: 1; width: 100%;
+}
+html.ua-mobile .filterbar .right { flex: 1;
+}
+html.ua-mobile .filterbar .right .fl { width: 100%;
+}
+/* ---- 手工补充：桌面端 !important 隐藏 mob-only 的规则优先级过高，这里按元素恢复 ---- */
+html.ua-mobile .mob-only { display: block !important; }
+html.ua-mobile .btn.mob-only { display: inline-flex !important; align-items: center; gap: 6px; }
+html.ua-mobile .tabbar { display: flex !important; }
+html.ua-mobile .detail-actions { display: flex !important; }
+html.ua-mobile .bottombar { display: flex !important; }
+html.ua-mobile .rcard-media { aspect-ratio: 4 / 3; }
+html.ua-mobile .hero img { height: 100%; object-fit: cover; }
+
+/* ---- 手工补充：移动端页面节奏 ---- */
+html.ua-mobile .page-head { padding: 20px 0 12px; }
+html.ua-mobile .auth-wrap {
+  min-height: calc(100vh - 56px);
+  display: flex; align-items: center; justify-content: center;
+  padding: 28px 16px 90px;
+}
+html.ua-mobile .auth-card { width: 100%; max-width: 420px; margin: 0 auto; }
+html.ua-mobile .cat-feature { padding: 14px; gap: 11px;
+}
+html.ua-mobile .cat-feature .ic { width: 40px; height: 40px; flex: 0 0 40px;
+}
+html.ua-mobile .cat-feature .m b { font-size: 17px;
+}
+html.ua-mobile .catgrid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px;
+}
+html.ua-mobile .cat-card { padding: 13px;
+}
+
+/* ---- 手机端不需要桌面式品牌标题栏，页面标题由各页 .page-head 承担 ---- */
+html.ua-mobile .titlebar { display: none !important; }
+html.ua-mobile .appbody { flex: 1; min-height: 0; }
+/* v1.13.8 登录/注册页：去掉 main 的通用底栏留白，避免整页多出一段可拖动高度 */
+html.ua-mobile body[data-page="login"] .main,
+html.ua-mobile body[data-page="admin-login"] .main {
+  padding-bottom: 0;
+}
+html.ua-mobile body[data-page="login"] .auth-wrap,
+html.ua-mobile body[data-page="admin-login"] .auth-wrap {
+  min-height: calc(100vh - 56px);
+  min-height: calc(100dvh - 56px);
+  padding-bottom: calc(90px + env(safe-area-inset-bottom));
+}
+
+
+
+/* ============================================================
+   v1.13.21 首页手机顶栏 / 登录页收尾
+   ============================================================ */
+html.ua-mobile .front-topbar {
+  display: flex !important;
+  align-items: center;
+  gap: 10px;
+  flex: 0 0 54px;
+  height: 54px;
+  padding: 0 12px 0 16px;
+  background: linear-gradient(180deg, #26221E 0%, #1F1C19 100%);
+  color: #F6F0E6;
+  position: sticky;
+  top: 0;
+  z-index: 45;
+  border-bottom: 1px solid rgba(0, 0, 0, .28);
+}
+html.ua-mobile .front-topbar .logo {
+  width: 26px; height: 26px; flex: 0 0 26px;
+  font-size: 15px;
+}
+html.ua-mobile .ftb-brand {
+  display: flex; align-items: center; gap: 8px;
+  min-width: 0; flex: 1;
+  color: #F6F0E6;
+}
+html.ua-mobile .ftb-name {
+  font-size: 15px; font-weight: 700; letter-spacing: .02em;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+html.ua-mobile .ftb-user {
+  display: inline-flex; align-items: center; gap: 7px;
+  max-width: 46vw; min-width: 0;
+  padding: 4px 10px 4px 5px;
+  border: 1px solid rgba(255, 255, 255, .13);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .07);
+  color: #F6F0E6;
+}
+html.ua-mobile .ftb-user .avatar {
+  width: 27px; height: 27px; flex: 0 0 27px;
+  font-size: 12px;
+  border: 1px solid rgba(255, 255, 255, .18);
+  background: linear-gradient(150deg, #E9D8C4, #CDB99C);
+}
+html.ua-mobile .ftb-uname {
+  min-width: 0;
+  max-width: 92px;
+  font-size: 12.5px;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+html.ua-mobile .ftb-login {
+  display: inline-flex; align-items: center; gap: 5px;
+  flex: 0 0 auto;
+  padding: 6px 13px;
+  border-radius: 999px;
+  background: var(--brand);
+  color: #fff;
+  font-size: 12.5px;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .18);
+}
+html.ua-mobile .ftb-login .ico { width: 14px; height: 14px; }
+
+/* 登录/注册页：不再挂底部导航，整页按真实视口收口 */
+html.ua-mobile body[data-page="login"] .main,
+html.ua-mobile body[data-page="register"] .main {
+  padding-bottom: 0;
+}
+html.ua-mobile body[data-page="login"] .page,
+html.ua-mobile body[data-page="register"] .page {
+  padding: 0;
+}
+html.ua-mobile body[data-page="login"] .auth-wrap,
+html.ua-mobile body[data-page="register"] .auth-wrap {
+  min-height: 100vh;
+  min-height: 100dvh;
+  align-items: center;
+  padding: 24px 16px calc(24px + env(safe-area-inset-bottom));
+}
+/* 手机端隐藏滚动条，保留滚动能力，避免登录页右侧竖条露出来 */
+html.ua-mobile,
+html.ua-mobile body {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+html.ua-mobile::-webkit-scrollbar,
+html.ua-mobile body::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  display: none;
+}
+
+
+/* v1.13.22：把外壳高度统一到动态视口，收掉登录页底部那条白色空条 */
+html.ua-mobile .window {
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+/* v1.13.22 登录/注册页彻底收口：不再留出底部导航的 78px 白色尾巴 */
+html.ua-mobile body[data-page="login"],
+html.ua-mobile body[data-page="register"] {
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+}
+html.ua-mobile body[data-page="login"] .window,
+html.ua-mobile body[data-page="register"] .window {
+  min-height: 0;
+  height: 100%;
+}
+html.ua-mobile body[data-page="login"] .appbody,
+html.ua-mobile body[data-page="register"] .appbody {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+}
+html.ua-mobile body[data-page="login"] .main,
+html.ua-mobile body[data-page="register"] .main {
+  flex: 1;
+  height: auto;
+  min-height: 0;
+  padding: 0 !important;
+  overflow-y: auto;
+  background: #F5F0E7;
+}
+html.ua-mobile body[data-page="login"] .page,
+html.ua-mobile body[data-page="register"] .page {
+  height: 100%;
+  min-height: 0;
+  padding: 0 !important;
+}
+html.ua-mobile body[data-page="login"] .auth-wrap,
+html.ua-mobile body[data-page="register"] .auth-wrap {
+  height: 100%;
+  min-height: 100% !important;
+  padding: 24px 16px calc(24px + env(safe-area-inset-bottom)) !important;
+}
+
+/* ============================================================
+   v1.13.23 卡片简介：能放下就不动，放不下才左右匀速滚动
+   ============================================================ */
+html.ua-mobile .rcard-body p[data-marquee],
+html.ua-mobile .sres p[data-marquee] {
+  display: block;
+  white-space: nowrap;
+  -webkit-line-clamp: unset;
+  -webkit-box-orient: initial;
+  text-overflow: clip;
+  overflow: hidden;
+}
+html.ua-mobile .sg-mq-track {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 48px;
+  white-space: nowrap;
+  will-change: transform;
+  animation: sg-mq var(--sg-mq-dur, 20s) linear infinite;
+  animation-delay: 1.4s;
+}
+html.ua-mobile .sg-mq-copy { display: inline-block; flex: 0 0 auto; }
+@keyframes sg-mq {
+  from { transform: translateX(0); }
+  to   { transform: translateX(var(--sg-mq-shift, -100px)); }
+}
+
+/* v1.13.24 手机端播报条与欢迎卡微调 */
+html.ua-mobile .home-ticker {
+  height: 36px;
+  margin: 0 -16px 0;
+  border-left: 0;
+  border-right: 0;
+  border-radius: 0;
+}
+html.ua-mobile .ht-label { padding-left: 0; }
+html.ua-mobile .ht-item { font-size: 11.5px; padding-right: 30px; }
+html.ua-mobile .wm-card { max-height: 86dvh; }
+
+/* v1.13.25 评论栏与点赞按钮 */
+html.ua-mobile .comment-ticker {
+  height: 22px;
+  margin: 0 -16px 10px;
+  border-radius: 0;
+  border-left: 0;
+  border-right: 0;
+}
+html.ua-mobile .ct-name { font-size: 11px; }
+html.ua-mobile .cmt-like { height: 26px; padding: 0 9px; }
+
+/* 手机顶栏：下载 App 小入口（和登录/头像同一行） */
+html.ua-mobile .ftb-dl {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 32px; height: 32px; flex: 0 0 32px;
+  margin-right: 6px;
+  border: 1px solid rgba(255,255,255,.16);
+  border-radius: 9px;
+  background: rgba(255,255,255,.07);
+  color: #F6F0E6;
+}
+html.ua-mobile .ftb-dl .ico { width: 16px; height: 16px; }
+html.ua-mobile .ftb-dl:active { background: rgba(255,255,255,.14); }

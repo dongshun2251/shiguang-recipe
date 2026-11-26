@@ -1,0 +1,74 @@
+{
+  "name": "shiguang-recipe",
+  "productName": "食光菜谱",
+  "version": "1.0.5",
+  "description": "食光菜谱 Windows 桌面客户端",
+  "main": "main.js",
+  "author": "Shiguang",
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "start": "electron .",
+    "pack:win": "electron-packager . 食光菜谱 --platform=win32 --arch=x64 --electron-version=30.5.1 --out=dist --overwrite --asar --icon=build/icon.ico --app-version=1.0.5 --win32metadata.CompanyName=Shiguang --win32metadata.ProductName=食光菜谱 --win32metadata.FileDescription=食光菜谱 --ignore=\"^/(dist|build|node_modules|package-lock.json)$\"",
+    "build:win": "electron-builder --win nsis --x64"
+  },
+  "devDependencies": {
+    "electron": "30.5.1",
+    "electron-builder": "^24.13.3",
+    "electron-packager": "17.1.2"
+  },
+  "build": {
+    "appId": "com.shiguang.recipe",
+    "productName": "食光菜谱",
+    "copyright": "Copyright © 2026 Shiguang",
+    "directories": {
+      "output": "release",
+      "buildResources": "build"
+    },
+    "files": [
+      "main.js",
+      "splash.html",
+      "assets/qrcode.min.js",
+      "assets/app.js",
+      "assets/jsQR.js",
+      "assets/audio/*.mp3",
+      "build/icon.png",
+      "build/icon.ico",
+      "package.json"
+    ],
+    "win": {
+      "icon": "build/icon.ico",
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "signAndEditExecutable": false
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "食光菜谱",
+      "installerIcon": "build/icon.ico",
+      "uninstallerIcon": "build/icon.ico",
+      "installerHeaderIcon": "build/icon.ico",
+      "artifactName": "食光菜谱-Setup-${version}.${ext}",
+      "deleteAppDataOnUninstall": false,
+      "runAfterFinish": true,
+      "include": "build/installer.nsh"
+    },
+    "protocols": [
+      {
+        "name": "食光菜谱",
+        "schemes": [
+          "shiguang"
+        ]
+      }
+    ]
+  }
+}
