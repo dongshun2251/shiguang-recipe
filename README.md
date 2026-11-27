@@ -56,9 +56,9 @@ npm run pack:win        # 免安装绿色版
 
 `releases/` 里放了：
 
-- `食光菜谱-Android-1.0.5.apk`
-- `食光菜谱-平板-1.0.5.apk`
-- `食光菜谱-便携版-1.0.5.exe`（68 MB，不提交到 Git，发布到 GitHub Releases）
+- `shiguang-Android-1.0.10.apk`
+- `shiguang-HD-1.0.10.apk`
+- `shiguang-Windows-1.0.10-Setup.exe`（74 MB，不提交到 Git，发布到 GitHub Releases）
 
 Windows 安装包没有商业代码签名，SmartScreen 可能提示“未知发布者”，选择“更多信息 → 仍要运行”。
 
